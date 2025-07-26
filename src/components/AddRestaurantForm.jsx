@@ -86,9 +86,9 @@ const AddRestaurantForm = () => {
       <form onSubmit={handleSubmit}>
         <Stack spacing={5}>
           <FormControl isRequired>
-            <FormLabel>Google Place ID / URL</FormLabel>
+            <FormLabel>Google Place ID</FormLabel>
             <Input
-              placeholder="https://goo.gl/maps/..."
+              placeholder="Place ID here"
               value={placeId}
               onChange={(e) => setPlaceId(e.target.value)}
             />

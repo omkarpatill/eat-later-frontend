@@ -244,12 +244,19 @@ const RestaurantList = () => {
                       colorScheme="gray"
                     />
                     <ChakraLink
-                      href={`https://www.google.com/maps/place/?q=place_id:${r.google_link}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <IconButton size="sm" icon={<FiMapPin />} aria-label="Map" variant="outline" colorScheme="teal" />
-                    </ChakraLink>
+  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.name)}&query_place_id=${r.google_link}`}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <IconButton
+    size="sm"
+    icon={<FiMapPin />}
+    aria-label="Map"
+    variant="outline"
+    colorScheme="orange"
+  />
+</ChakraLink>
+
                     {isEditing ? (
                       <>
                         <Button size="sm" colorScheme="green" onClick={() => handleSave(r.google_link)}>Save</Button>
