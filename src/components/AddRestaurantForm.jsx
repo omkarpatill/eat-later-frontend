@@ -34,7 +34,7 @@ const AddRestaurantForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5050/api/add", {
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/add`, {
         google_link: placeId,
         tags: {
           location,

@@ -56,7 +56,7 @@ const RestaurantList = () => {
 
   const fetchRestaurants = async () => {
     try {
-      const res = await axios.get('http://localhost:5050/api/restaurants');
+      const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/restaurants`);
       setRestaurants(res.data);
       localStorage.setItem('restaurants', JSON.stringify(res.data));
     } catch (err) {
@@ -81,7 +81,7 @@ const RestaurantList = () => {
 
   const handleDelete = async (placeId) => {
     try {
-      await axios.delete(`http://localhost:5050/api/restaurant/${placeId}`);
+      await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/restaurant/${placeId}`);
       toast({ title: 'Deleted', status: 'info', duration: 3000, isClosable: true });
       fetchRestaurants(); // refresh list
     } catch (err) {
@@ -119,7 +119,7 @@ const RestaurantList = () => {
       my_rating: editRating ? parseInt(editRating) : null,
     };
     try {
-      await axios.put(`http://localhost:5050/api/restaurant/${placeId}`, payload);
+      await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/restaurant/${placeId}`, payload);
       toast({ title: 'Updated', status: 'success', duration: 3000, isClosable: true });
       setEditingId(null);
       fetchRestaurants();
